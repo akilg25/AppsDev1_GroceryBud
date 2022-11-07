@@ -1,15 +1,12 @@
 import './App.css';
 import { useState } from 'react';
-import GroceryForm from './groceryForm';
+import GroceryList from './groceryList';
 
 function App() {
 
-  const [items,setItems] = useState([]);
-
   return (
     <div>
-      <h1>Grocery Bud</h1>
-      <GroceryForm/>
+      <GroceryList/>
     </div>
   );
 }
