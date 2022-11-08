@@ -27,13 +27,19 @@ function GroceryList(){
         setGroceries(updatedGrocery);
     }
 
+    const removeGrocery = id => {
+        const removeAry = [...groceries].filter(grocery => grocery.id !== id);
+        setGroceries(removeAry);
+    }
+
     return(
         <div>
           <h1>Grocery Bud</h1>
           <GroceryForm onSubmit={addGrocery}/>
           <Grocery 
           groceries = {groceries}
-          completeGrocery = {completeGrocery}/>
+          completeGrocery = {completeGrocery}
+          removeGrocery = {removeGrocery}/>
         </div>
     );
 }

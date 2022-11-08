@@ -8,6 +8,7 @@ function GroceryForm(props){
     }
 
     const submitHandle  = h => {
+       h.preventDefault();
        props.onSubmit({
         id: Math.floor(Math.random() * 10000),
         text: inputs
