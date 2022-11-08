@@ -25,12 +25,23 @@ function GroceryList(){
             return grocery;
         });
         setGroceries(updatedGrocery);
-    }
+    };
 
     const removeGrocery = id => {
         const removeAry = [...groceries].filter(grocery => grocery.id !== id);
         setGroceries(removeAry);
-    }
+    };
+
+    const updateGrocery = (groceryId,newValue) => {
+        if(!newValue.text ||  /^\s*$/.test(newValue.text)){
+           return;
+        }
+
+        setGroceries(prev => prev.map(item => (item.id === groceryId ? newValue : item)));
+
+    };
+
+    
 
     return(
         <div>
