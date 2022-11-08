@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import groceries from './groceryList'
 import {RiCloseCircleLine} from 'react-icons/ri'
-import {TiEdit} from 'rect-icons/ti'
+import {TiEdit} from 'react-icons/ti'
 
-function Grocery({groceries,completeGrocery}) {
+function Grocery({groceries,completeGrocery,removeGrocery}) {
     
     const [edit,setEdit] = useState({
         id:null,
@@ -16,8 +15,8 @@ function Grocery({groceries,completeGrocery}) {
         <div key={grocery.id} onClick={()=>completeGrocery(grocery.id)}>{grocery.text}
         </div>
         <div className='icons'>
-         <RiCloseCircleLine/>
-         <TiEdit/>
+         <RiCloseCircleLine onClick={() => removeGrocery(grocery.id)} className='delete-icon'/>
+         <TiEdit onClick={() => setEdit({id: grocery.id,value: grocery.text})} className='edit-icon'/>
         </div>
     </div>
   ))
