@@ -1,5 +1,6 @@
 import { useState } from "react";
 import GroceryForm from "./groceryForm";
+import Grocery from "./grocery";
 
 
 function GroceryList(){
@@ -16,10 +17,23 @@ function GroceryList(){
         setGroceries(newGrocery);
     };
 
+    const completeGrocery = id => {
+        let updatedGrocery = groceries.map(grocery => {
+            if(grocery.id === id ){
+                grocery.isComplete = !grocery.isComplete;
+            }
+            return grocery;
+        });
+        setGroceries(updatedGrocery);
+    }
+
     return(
         <div>
           <h1>Grocery Bud</h1>
-          <GroceryForm />
+          <GroceryForm onSubmit={addGrocery}/>
+          <Grocery 
+          groceries = {groceries}
+          completeGrocery = {completeGrocery}/>
         </div>
     );
 }
