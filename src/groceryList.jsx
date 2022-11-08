@@ -50,7 +50,8 @@ function GroceryList(){
           <Grocery 
           groceries = {groceries}
           completeGrocery = {completeGrocery}
-          removeGrocery = {removeGrocery}/>
+          removeGrocery = {removeGrocery}
+          updateGrocery = {updateGrocery}/>
         </div>
     );
 }
